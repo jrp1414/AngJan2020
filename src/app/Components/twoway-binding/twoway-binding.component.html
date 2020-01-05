@@ -1,0 +1,41 @@
+<h3>Two Way Binding Examples</h3>
+
+<h4>One Way Problem</h4>
+
+<div class="row">
+  <div class="col-md-2">
+  <input type="text" class="form-control" (input)="OneWayChange($event)"  />
+  </div>
+  <div class="col-md-2">
+    {{OneWayTestVal}}
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary" (click)="OneWayFailTest()" >One Way Failed</button>
+  </div>
+</div>
+<hr>
+<!-- <h4>Two Way Working</h4>
+<div class="row">
+  <div class="col-md-2">
+  <input type="text" [(ngModel)]="TwoWayTestVal" class="form-control"  />
+  </div>
+  <div class="col-md-2">
+    {{TwoWayTestVal}}
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary" (click)="TwoWayPassTest()" >Two Way Passed</button>
+  </div>
+</div> -->
+
+<h4>Two Way Working</h4>
+<div class="row">
+  <div class="col-md-2">
+  <input type="text" [ngModel]="TwoWayTestVal" (ngModelChange)="TwoWayChange($event)" class="form-control"  />
+  </div>
+  <div class="col-md-2">
+    {{TwoWayTestVal}}
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary" (click)="TwoWayPassTest()" >Two Way Passed</button>
+  </div>
+</div>

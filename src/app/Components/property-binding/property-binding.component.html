@@ -1,0 +1,20 @@
+<h3>Property Binding Examples</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    Image Source Binding
+  </div>
+  <div class="col-md-2">
+    <!-- <img [src]="imageSrc" [height]="imageHeight" [width]="imageWidth"  > -->
+    <img [src]="imageSrc" [height]="getImageHeight()" [width]="imageWidth"  >
+  </div>
+</div>
+
+<div class="row" [hidden]="isButtonDisabled">
+  <div class="col-md-2">
+    Disable Button
+  </div>
+  <div class="col-md-2">
+    <button type="button" class="btn btn-primary" [disabled]="isButtonDisabled">Disable Button</button>
+  </div>
+</div>

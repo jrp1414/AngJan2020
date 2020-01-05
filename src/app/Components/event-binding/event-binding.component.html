@@ -1,0 +1,27 @@
+<h3>Event Binding Examples</h3>
+
+<div class="row">
+  <div class="col-md-2">
+    Button Click Event Binding 
+  </div>
+  <div class="col-md-2">
+    {{Val}}
+  </div>
+  <div class="col-md-2">
+    <!-- <button type="button" class="btn btn-primary" (click)="Val='Test Val'">Click Event Test</button> -->
+    <button type="button" class="btn btn-primary" (click)="ClickEventTest()">Click Event Test</button>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2">
+    Text Box Change Event Binding 
+  </div>
+  <div class="col-md-2">
+    <!-- <input type="text" class="form-control" (input)="InputChange($event)" > -->
+    <input type="text" class="form-control" (keyup)="InputChange($event)" >
+  </div>
+  <div class="col-md-2">
+    {{textBoxVal}}
+  </div>
+</div>
