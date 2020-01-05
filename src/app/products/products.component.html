@@ -1,0 +1,49 @@
+<div class="container">
+  <h3>Products List</h3>
+
+  <div class="row">
+    <div class="col-md-2">
+      Filter Products :
+    </div>
+    <div class="col-md-2">
+      <input type="text" [ngModel]="filterText" (ngModelChange)="FilterTextChanged($event)" class="form-control">
+    </div>
+    <div class="col-md-2">
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+  </div>
+  <button type="button" (click)="AddProduct()" class="btn btn-primary">Add Product</button>
+  <!-- <table *ngIf="products.length>0" class="table table-hover table-bordered"> -->
+    <table *ngIf="products.length>0; else noProducts;"  class="table table-hover table-bordered">
+      <thead>
+        <tr>
+          <!-- <th>Id</th> -->
+          <th>Sl No</th>
+          <th>Name</th>
+          <th>Code</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products;let i = index;">
+          <!-- <td scope="row">{{product.productId}}</td> -->
+          <td>{{i+1}}</td>
+          <td>{{product.productName}}</td>
+          <td>{{product.productCode}}</td>
+          <td>{{product.description?.descText}}</td>
+          <td><img [src]="product.imageUrl" height="100px" width="100px" [alt]="product.productName"></td>
+        </tr>
+      </tbody>
+    </table>
+  
+    
+  <ng-template #noProducts >
+    <div style="margin-top: 20px;" class="alert alert-primary" role="alert">
+      <strong>No Products Found</strong>
+    </div>
+  </ng-template>
+</div>
