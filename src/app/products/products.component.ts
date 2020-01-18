@@ -11,6 +11,8 @@ export class ProductsComponent {
   imageWidth: string = "150px";
   imageHeight: string = "150px";
 
+  childData:string;
+
   products: any[];
   constructor() {
     console.log(Colors.Blue);
@@ -85,18 +87,28 @@ export class ProductsComponent {
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/120337/xbox-controller_01.png",
         "emailId": "test@test.com"
       }
-    ];
-    this.tempProducts = this.products;
+    ];    
   }
   tempProducts: any[];
   filterText: string = "";
-  FilterTextChanged(data) {
-    this.filterText = data;
-    this.products = this.tempProducts.filter(prod => prod.productName.toLowerCase().indexOf(this.filterText.toLowerCase()) != -1);
+  TestImpurity(){
+    this.products.push({
+      "productId": 10,
+      "productName": "Test Impure",
+      "productCode": "GDN-0010",
+      "releaseDate": "March 19, 2016",
+      "description": {
+        'descText': "Leaf Rake Description",
+        "mfdYear": 2018
+      },
+      "price": 19.95485968596,
+      "starRating": 3,
+      "imageUrl": "https://www.harrodhorticultural.com/uploads/images/products/GGT-886_Sneeboer_Leaf_Rakes_1.jpg",
+      "emailId": "test@test.com"
+    });
   }
-
   ChildDataReceived(data){
-    console.log(data);
+    this.childData = data;
   }
 
   AddProduct() {

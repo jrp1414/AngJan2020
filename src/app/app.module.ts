@@ -9,6 +9,8 @@ import { EventBindingComponent } from './Components/event-binding/event-binding.
 import { TwowayBindingComponent } from './Components/twoway-binding/twoway-binding.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductThumbnailComponent } from './products/product-thumbnail/product-thumbnail.component';
+import { ShortenPipe } from './Pipes/shorten.pipe';
+import { FilterPipe } from './Pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { ProductThumbnailComponent } from './products/product-thumbnail/product-
     EventBindingComponent,
     TwowayBindingComponent,
     ProductsComponent,
-    ProductThumbnailComponent
+    ProductThumbnailComponent,
+    ShortenPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

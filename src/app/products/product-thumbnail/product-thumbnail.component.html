@@ -1,16 +1,26 @@
 <div class="card">
   <div class="card-header">
-    <h3>{{product.productName}}</h3>
-  </div>
+    <!-- <h3>{{product.productName | uppercase | lowercase }}</h3> -->
+    <h3>{{product.productName | uppercase }}</h3>
+  </div>  
   <div class="card-body">
-    <h4 class="card-title">{{product.productCode}}</h4>
+    <h4 class="card-title">{{product.productCode | lowercase}}</h4>
     <div class="row">
+      <div class="col-md-6">Current Date :</div>
+      <div class="col-md-6">{{currentDate | date : 'yyyy/MM/dd'}}</div>
+    </div>
+    <!-- <div class="row">
       <div class="col-md-6">Release Date :</div>
       <div class="col-md-6">{{product.releaseDate}}</div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-6">Price :</div>
+      <div class="col-md-6">{{product.price | currency :'EUR':true:'2.2-2'}}</div>
     </div>
     <div class="row">
       <div class="col-md-6">Description :</div>
-      <div class="col-md-6">{{product.description?.descText}}</div>
+      <div class="col-md-6">{{product.description?.descText | shorten}}</div>
     </div>
     <div class="row">
       <div class="col-md-6">Image :</div>
@@ -22,5 +32,8 @@
   <div class="card-footer text-muted">
     {{product.emailId}}
     <button type="button" class="btn btn-primary" (click)="SendDataToParent()" >Send to Parent</button>
+    <!-- <div>
+      {{product | json}}
+    </div> -->
   </div>
 </div>

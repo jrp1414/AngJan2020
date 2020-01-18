@@ -1,16 +1,29 @@
 <div class="container">
   <h3>Products List</h3>
+  <div *ngIf="childData?.length>0" class="alert alert-warning alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>{{childData}}</strong> 
+  </div>
+  <script>
+    $(".alert").alert();
+  </script>
   <div class="row">
     <div class="col-md-2">
       Filter Products :
     </div>
     <div class="col-md-2">
-      <input type="text" [ngModel]="filterText" (ngModelChange)="FilterTextChanged($event)" class="form-control">
+      <input type="text" [(ngModel)]="filterText" class="form-control">
     </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-primary" (click)="TestImpurity()">Test Impurity</button>
+    </div>
+
   </div>
 
   <div class="row">
-    <div style="margin-top: 20px;" class="col-md-4" *ngFor="let prod of products">
+    <div style="margin-top: 20px;" class="col-md-4" *ngFor="let prod of products | filter:'productName':filterText">
       <product-thumbnail [prod]="prod" (SendToParent)="ChildDataReceived($event)"></product-thumbnail>
     </div>
   </div>
