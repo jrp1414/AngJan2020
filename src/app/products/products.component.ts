@@ -7,7 +7,10 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
   // encapsulation:ViewEncapsulation.None
 })
 export class ProductsComponent {
-  
+
+  imageWidth: string = "150px";
+  imageHeight: string = "150px";
+
   products: any[];
   constructor() {
     console.log(Colors.Blue);
@@ -89,18 +92,18 @@ export class ProductsComponent {
   filterText: string = "";
   FilterTextChanged(data) {
     this.filterText = data;
-    this.products = this.tempProducts.filter(prod => prod.productName.toLowerCase().indexOf(this.filterText.toLowerCase())!=-1);
+    this.products = this.tempProducts.filter(prod => prod.productName.toLowerCase().indexOf(this.filterText.toLowerCase()) != -1);
   }
 
-  AddProduct(){
+  AddProduct() {
     this.tempProducts.push({
       "productId": 2,
       "productName": "Garden Cart",
       "productCode": "GDN-0023",
       "releaseDate": "March 18, 2016",
       "description": {
-          'descText': "15 gallon capacity rolling garden cart",
-          "mfdYear": 2013
+        'descText': "15 gallon capacity rolling garden cart",
+        "mfdYear": 2013
       },
       "price": 0,
       "starRating": 4,
@@ -122,6 +125,91 @@ export class ProductsComponent {
     //   "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png",
     //   "emailId": "test@test.com"
     // });
+  }
+
+  getBackgroundColor(product) {
+    switch (product.starRating) {
+      case 1: return "maroon";
+        break;
+      case 2: return "red";
+        break;
+      case 3: return "yellow";
+        break;
+      case 4: return "pink";
+        break;
+      case 5: return "green";
+        break;
+      default:return "blue";
+        break;
+    }
+  }
+
+  getColor(product) {
+    switch (product.starRating) {
+      case 1: return "white";
+        break;
+      case 2: return "yellow";
+        break;
+      case 3: return "blue";
+        break;
+      case 4: return "black";
+        break;
+      case 5: return "white";
+        break;
+      default:return "yellow";
+        break;
+    }
+  }
+  getStyle(product) {
+    switch (product.starRating) {
+      case 1: return {'background-color':'maroon','color':'yellow'};
+        break;
+      case 2: return {'background-color':'red','color':'white'};
+        break;
+      case 3: return {'background-color':'yellow','color':'blue'};
+        break;
+      case 4: return {'background-color':'pink','color':'black'};
+        break;
+      case 5: return {'background-color':'green','color':'white'};
+        break;
+      default:return {'background-color':'blue','color':'yellow'};
+        break;
+    }    
+  }
+
+  getClass(product) {
+    // switch (product.starRating) {
+    //   case 1: return "rating1";
+    //     break;
+    //   case 2: return "rating2";
+    //     break;
+    //   case 3: return "rating3";
+    //     break;
+    //   case 4: return "rating4 bold";
+    //     break;
+    //   case 5: return "rating5 bold italic";
+    //     break;
+    //   default:return "";
+    //     break;
+    // }
+
+    switch (product.starRating) {
+      case 1: return "rating1";
+        break;
+      case 2: return "rating2";
+        break;
+      case 3: return "rating3";
+        break;
+      // case 4: return ["rating4","bold"];
+      case 4: return {'rating4':'bold'};
+
+        break;
+      case 5: return ["rating5","bold","italic"];
+        break;
+      default:return "";
+        break;
+    }
+    
   }
 
 
@@ -159,8 +247,8 @@ let data = [
 // }
 
 
-enum Colors{
-  Red=100,
+enum Colors {
+  Red = 100,
   Green,
   Blue
 }

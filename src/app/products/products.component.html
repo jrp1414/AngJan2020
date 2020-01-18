@@ -17,31 +17,52 @@
   </div>
   <button type="button" (click)="AddProduct()" class="btn btn-primary">Add Product</button>
   <!-- <table *ngIf="products.length>0" class="table table-hover table-bordered"> -->
-    <table *ngIf="products.length>0; else noProducts;"  class="table table-hover table-bordered">
-      <thead>
-        <tr>
-          <!-- <th>Id</th> -->
-          <th>Sl No</th>
-          <th>Name</th>
-          <th>Code</th>
-          <th>Description</th>
-          <th>Image</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products;let i = index;">
-          <!-- <td scope="row">{{product.productId}}</td> -->
-          <td>{{i+1}}</td>
-          <td>{{product.productName}}</td>
-          <td>{{product.productCode}}</td>
-          <td>{{product.description?.descText}}</td>
-          <td><img [src]="product.imageUrl" height="100px" width="100px" [alt]="product.productName"></td>
-        </tr>
-      </tbody>
-    </table>
-  
-    
-  <ng-template #noProducts >
+  <table *ngIf="products.length>0; else noProducts;" class="table table-hover table-bordered">
+    <thead>
+      <tr>
+        <!-- <th>Id</th> -->
+        <th>Sl No</th>
+        <th>Name</th>
+        <th>Code</th>
+        <th>Description</th>
+        <th>Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- <tr [style.backgroundColor]="product.starRating>=3?'green':'red'" *ngFor="let product of products;let i = index;"> -->
+      <!-- <tr 
+        [style.backgroundColor]="getBackgroundColor(product)" 
+        [style.color]="getColor(product)"
+        *ngFor="let product of products;let i = index;"> -->
+      <!-- <tr 
+        [ngStyle]="getStyle(product)"
+        *ngFor="let product of products;let i = index;"> -->
+      <tr [ngClass]="getClass(product)" *ngFor="let product of products;let i = index;">
+        <td>{{i+1}}</td>
+        <!-- <td 
+        [class.bold]="product.starRating>3"
+        [class.italic]="product.starRating==5"   
+          >{{product.productName}}</td> -->
+
+        <td>{{product.productName}}</td>
+        <td>{{product.productCode}}</td>
+        <td>{{product.description?.descText}}</td>
+        <td [ngSwitch]="product.starRating">
+          <span *ngSwitchCase="1">Very Bad</span>
+          <span *ngSwitchCase="2">Bad</span>
+          <span *ngSwitchCase="3">Average</span>
+          <span *ngSwitchCase="4">Good</span>
+          <span *ngSwitchCase="5">Very Good</span>
+          <span *ngSwitchDefault>NA</span>
+        </td>
+        <td><img [src]="product.imageUrl" [style.width]="imageWidth" [style.height]="imageHeight"
+            [alt]="product.productName"></td>
+      </tr>
+    </tbody>
+  </table>
+
+
+  <ng-template #noProducts>
     <div style="margin-top: 20px;" class="alert alert-primary" role="alert">
       <strong>No Products Found</strong>
     </div>

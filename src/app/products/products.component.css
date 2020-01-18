@@ -1,3 +1,37 @@
-div{
+/* div{
 background-color: aqua;
+} */
+
+.bold{
+    font-weight: bolder;    
 }
+
+.italic{
+    font-style: italic;
+}
+
+.rating1{
+    background-color: brown;
+    color: white;
+}
+
+.rating2{
+    background-color: red;
+    color: white;
+}
+
+.rating3{
+    background-color: yellow;
+    color: blue;
+}
+
+.rating4{
+    background-color: chartreuse;
+    color: darkblue;
+}
+
+.rating5{
+    background-color: green;
+    color: white;
+}
+
