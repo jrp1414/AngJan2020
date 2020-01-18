@@ -1,0 +1,26 @@
+<div class="card">
+  <div class="card-header">
+    <h3>{{product.productName}}</h3>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{{product.productCode}}</h4>
+    <div class="row">
+      <div class="col-md-6">Release Date :</div>
+      <div class="col-md-6">{{product.releaseDate}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">Description :</div>
+      <div class="col-md-6">{{product.description?.descText}}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">Image :</div>
+      <div class="col-md-6">
+        <img [src]="product.imageUrl" height="100px" width="100px" [alt]="product.productName">
+      </div>
+    </div>
+  </div>
+  <div class="card-footer text-muted">
+    {{product.emailId}}
+    <button type="button" class="btn btn-primary" (click)="SendDataToParent()" >Send to Parent</button>
+  </div>
+</div>

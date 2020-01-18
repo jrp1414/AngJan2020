@@ -8,6 +8,7 @@ import { PropertyBindingComponent } from './Components/property-binding/property
 import { EventBindingComponent } from './Components/event-binding/event-binding.component';
 import { TwowayBindingComponent } from './Components/twoway-binding/twoway-binding.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductThumbnailComponent } from './products/product-thumbnail/product-thumbnail.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductsComponent } from './products/products.component';
     PropertyBindingComponent,
     EventBindingComponent,
     TwowayBindingComponent,
-    ProductsComponent
+    ProductsComponent,
+    ProductThumbnailComponent
   ],
   imports: [
     BrowserModule,

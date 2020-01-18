@@ -34,10 +34,10 @@ export class ProductsComponent {
         "productName": "Garden Cart",
         "productCode": "GDN-0023",
         "releaseDate": "March 18, 2016",
-        // "description": {
-        //     'descText': "15 gallon capacity rolling garden cart",
-        //     "mfdYear": 2013
-        // },
+        "description": {
+            'descText': "15 gallon capacity rolling garden cart",
+            "mfdYear": 2013
+        },
         "price": 0,
         "starRating": 4,
         "imageUrl": "https://openclipart.org/image/300px/svg_to_png/58471/garden_cart.png",
@@ -93,6 +93,10 @@ export class ProductsComponent {
   FilterTextChanged(data) {
     this.filterText = data;
     this.products = this.tempProducts.filter(prod => prod.productName.toLowerCase().indexOf(this.filterText.toLowerCase()) != -1);
+  }
+
+  ChildDataReceived(data){
+    console.log(data);
   }
 
   AddProduct() {
