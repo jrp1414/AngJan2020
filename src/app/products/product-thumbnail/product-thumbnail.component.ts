@@ -1,5 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/Components/String-Interpolation/stringInterpolation.component';
+import { LoggerService } from 'src/app/Services/logger.service';
+import { ProductService } from 'src/app/Services/product.service';
 
 @Component({
   selector: 'product-thumbnail',
@@ -13,10 +15,14 @@ export class ProductThumbnailComponent implements OnInit {
 
   currentDate:string = new Date().toISOString();
 
-  constructor() { }
+  constructor(public logger: LoggerService,private ps:ProductService) { }
+
+  EmitData(){
+    this.ps.messageSender.emit(prompt("Enter message"));
+  }
 
   ngOnInit() {
-  
+  // this.logger.log("From Product Thumbnail");
   }
 
   SendDataToParent(){

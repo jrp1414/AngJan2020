@@ -13,8 +13,5 @@ export class UnlessDirective {
     }else{
       this.containerRef.createEmbeddedView(this.templateRef);
     }
-
   }
-
-
 }

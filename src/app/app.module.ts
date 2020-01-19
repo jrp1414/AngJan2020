@@ -7,6 +7,8 @@ import { StringInterplationComponent, PropertyBindingComponent, EventBindingComp
 import { ProductsComponent, ProductThumbnailComponent } from './products/products.index';
 import { ShortenPipe, FilterPipe } from './Pipes/pipes.index';
 import { BasicHighlightDirective, BetterHighlightDirective, UnlessDirective } from './Directives/directives.index';
+import { TempProductsComponent } from './Components/temp-products/temp-products.component';
+import { ProductService,LoggerService } from './Services/services.index';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,16 @@ import { BasicHighlightDirective, BetterHighlightDirective, UnlessDirective } fr
     FilterPipe,
     BasicHighlightDirective,
     BetterHighlightDirective,
-    UnlessDirective
+    UnlessDirective,
+    TempProductsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  // providers: [
+  //   LoggerService,ProductService
+  // ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
