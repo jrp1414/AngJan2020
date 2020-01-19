@@ -1,16 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {FormsModule} from "@angular/forms";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from './app.component';
-import { StringInterplationComponent } from './Components/String-Interpolation/stringInterpolation.component';
-import { PropertyBindingComponent } from './Components/property-binding/property-binding.component';
-import { EventBindingComponent } from './Components/event-binding/event-binding.component';
-import { TwowayBindingComponent } from './Components/twoway-binding/twoway-binding.component';
-import { ProductsComponent } from './products/products.component';
-import { ProductThumbnailComponent } from './products/product-thumbnail/product-thumbnail.component';
-import { ShortenPipe } from './Pipes/shorten.pipe';
-import { FilterPipe } from './Pipes/filter.pipe';
+import { StringInterplationComponent, PropertyBindingComponent, EventBindingComponent, TwowayBindingComponent } from './Components/BasicComponents.index';
+import { ProductsComponent, ProductThumbnailComponent } from './products/products.index';
+import { ShortenPipe, FilterPipe } from './Pipes/pipes.index';
+import { BasicHighlightDirective, BetterHighlightDirective, UnlessDirective } from './Directives/directives.index';
 
 @NgModule({
   declarations: [
@@ -22,7 +18,10 @@ import { FilterPipe } from './Pipes/filter.pipe';
     ProductsComponent,
     ProductThumbnailComponent,
     ShortenPipe,
-    FilterPipe
+    FilterPipe,
+    BasicHighlightDirective,
+    BetterHighlightDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,

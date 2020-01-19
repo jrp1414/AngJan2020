@@ -11,7 +11,7 @@ export class ProductThumbnailComponent implements OnInit {
   @Input('prod') product:any;
   @Output() SendToParent:EventEmitter<string> = new EventEmitter<string>();
 
-  currentDate:Date = new Date().toISOString();
+  currentDate:string = new Date().toISOString();
 
   constructor() { }
 

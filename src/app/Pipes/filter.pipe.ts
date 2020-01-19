@@ -10,5 +10,4 @@ export class FilterPipe implements PipeTransform {
     return value.filter(obj => obj[propName].toLowerCase()
                           .indexOf(filterText.toLowerCase()) != -1);
   }
-
 }

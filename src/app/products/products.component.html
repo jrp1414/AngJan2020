@@ -1,5 +1,8 @@
 <div class="container">
   <h3>Products List</h3>
+  <div basic-highlight>Basic Highlight Directive</div>
+  <!-- <div better-highlight [defaultColor]="'chartreuse'">Better Highlight Example</div> -->
+  <div [better-highlight]="'yellow'" highlightColor="chartreuse">Better Highlight Example</div>
   <div *ngIf="childData?.length>0" class="alert alert-warning alert-dismissible fade show" role="alert">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
@@ -16,9 +19,14 @@
     <div class="col-md-2">
       <input type="text" [(ngModel)]="filterText" class="form-control">
     </div>
-    <div class="col-md-2">
-      <button type="button" class="btn btn-primary" (click)="TestImpurity()">Test Impurity</button>
+    <div *unless="filterText.length==0" class="col-md-2 alert alert-info">
+      {{filterText}}
     </div>
+    <!-- <ng-template [ngIf]="filterText.length>0">
+      <div class="col-md-2 alert alert-info">
+        {{filterText}}
+      </div>
+    </ng-template> -->
 
   </div>
 
