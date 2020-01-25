@@ -2,26 +2,47 @@ import { EventEmitter, Injectable } from '@angular/core';
 import { LoggerService } from './logger.service';
 
 @Injectable({
-  providedIn:"root"
+  providedIn: "root"
 })
 export class ProductService {
 
-  private productsList:any[];
+  private productsList: Product[];
 
-  public messageSender:EventEmitter<string>= new EventEmitter<string>();
+  public messageSender: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private ls:LoggerService) {
+  constructor(private ls: LoggerService) {
     this.productsList = products;
     this.ls.log("Hello");
-   }
+  }
 
-  GetProducts(){
+  GetProducts() {
     return this.productsList;
+  }
+
+  GetProductDetails(id: number):Product {
+    return this.productsList.find((prod) => prod.productId == id);
   }
 }
 
 
-const products = [
+export interface Product {
+  productId: number;
+  productName: string;
+  productCode: string;
+  releaseDate: string;
+  description?: Description;
+  price: number;
+  starRating:number;
+  imageUrl: string;
+  emailId: string;
+}
+
+export interface Description {
+  descText?:string;
+  mfdYear:number;
+}
+
+const products:Product[] = [
   {
     "productId": 1,
     "productName": "Leaf Rake",

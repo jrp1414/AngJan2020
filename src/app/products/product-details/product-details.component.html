@@ -1,6 +1,5 @@
 <div class="card">
   <div class="card-header">
-    <!-- <h3>{{product.productName | uppercase | lowercase }}</h3> -->
     <h3>{{product.productName | uppercase }}</h3>
   </div>
   <div class="card-body">
@@ -9,10 +8,10 @@
       <div class="col-md-6">Current Date :</div>
       <div class="col-md-6">{{currentDate | date : 'yyyy/MM/dd'}}</div>
     </div>
-    <!-- <div class="row">
+    <div class="row">
       <div class="col-md-6">Release Date :</div>
       <div class="col-md-6">{{product.releaseDate}}</div>
-    </div> -->
+    </div>
 
     <div class="row">
       <div class="col-md-6">Price :</div>
@@ -23,6 +22,10 @@
       <div class="col-md-6">{{product.description?.descText | shorten}}</div>
     </div>
     <div class="row">
+      <div class="col-md-6">Email Id :</div>
+      <div class="col-md-6">{{product.emailId}}</div>
+    </div>
+    <div class="row">
       <div class="col-md-6">Image :</div>
       <div class="col-md-6">
         <img [src]="product.imageUrl" height="100px" width="100px" [alt]="product.productName">
@@ -30,6 +33,7 @@
     </div>
   </div>
   <div class="card-footer text-muted">
-    <button type="button" class="btn btn-primary" [routerLink]="['/productdetails',product.productId,{pName:product.productName,pCode:product.productCode}]" >Details</button>
+    <button type="button" class="btn btn-default" (click)="GoBackToList()" >Back</button>
+    <a routerLink="/productdetails/5">Go to Product 5</a>
   </div>
 </div>

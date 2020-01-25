@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Product } from 'src/app/Components/String-Interpolation/stringInterpolation.component';
 import { LoggerService } from 'src/app/Services/logger.service';
 import { ProductService } from 'src/app/Services/product.service';
 
