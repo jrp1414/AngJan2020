@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: "", component: DashboardComponent, pathMatch: "full" },
   // { path: "home", redirectTo: "welcome" },
   // { path: "welcome", redirectTo: "products" },
-  { path: "**", redirectTo: "home" }
+  //{ path: "**", redirectTo: "home" }
 ];
 
 @NgModule({

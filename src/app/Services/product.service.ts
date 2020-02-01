@@ -5,11 +5,8 @@ import { LoggerService } from './logger.service';
   providedIn: "root"
 })
 export class ProductService {
-
   private productsList: Product[];
-
   public messageSender: EventEmitter<string> = new EventEmitter<string>();
-
   constructor(private ls: LoggerService) {
     this.productsList = products;
     this.ls.log("Hello");

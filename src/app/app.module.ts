@@ -16,6 +16,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ProductsModule } from './products/products.module';
+import { StudentsModule } from './students/students.module';
 
 
 
@@ -35,6 +36,7 @@ import { ProductsModule } from './products/products.module';
     BrowserModule,
     FormsModule,
     ProductsModule,
+    StudentsModule,
     AppRoutingModule 
   ],
   // providers: [

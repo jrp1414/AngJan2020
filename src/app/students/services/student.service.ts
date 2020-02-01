@@ -16,7 +16,7 @@ export class StudentService {
     return this.students.find((student) => student.StudentId == id);
   }
 
-  students: Student[] = [
+  private students: Student[] = [
     {
       StudentId: 1, FirstName: "Ram", LastName: "Patil", MobileNo: "985896589658", EmailId: "ram@gmail.com",
       Address: { AddressId: 1, AddLine1: "Test", AddLine2: "Test", AddLine3: "Test", City: "Test", State: "Maharashtra" }
