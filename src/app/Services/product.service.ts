@@ -29,7 +29,7 @@ export interface Product {
   productId: number;
   productName: string;
   productCode: string;
-  releaseDate: string;
+  releaseDate: Date;
   description?: Description;
   price: number;
   starRating:number;
@@ -47,7 +47,7 @@ const products:Product[] = [
     "productId": 1,
     "productName": "Leaf Rake",
     "productCode": "GDN-0011",
-    "releaseDate": "March 19, 2016",
+    "releaseDate": new Date(2016,2,25),
     "description": {
       'descText': "Leaf Rake Description",
       "mfdYear": 2018
@@ -61,7 +61,7 @@ const products:Product[] = [
     "productId": 2,
     "productName": "Garden Cart",
     "productCode": "GDN-0023",
-    "releaseDate": "March 18, 2016",
+    "releaseDate": new Date(2016,2,25),
     "description": {
       'descText': "15 gallon capacity rolling garden cart",
       "mfdYear": 2013
@@ -75,7 +75,7 @@ const products:Product[] = [
     "productId": 5,
     "productName": "Hammer",
     "productCode": "TBX-0048",
-    "releaseDate": "May 21, 2016",
+    "releaseDate": new Date(2016,2,25),
     "description": {
       'descText': "Curved claw steel hammer",
       "mfdYear": 2014
@@ -89,7 +89,7 @@ const products:Product[] = [
     "productId": 8,
     "productName": "Saw",
     "productCode": "TBX-0022",
-    "releaseDate": "May 15, 2016",
+    "releaseDate": new Date(2016,2,25),
     "description": {
       'descText': "15-inch steel blade hand saw",
       "mfdYear": 2017
@@ -103,7 +103,7 @@ const products:Product[] = [
     "productId": 10,
     "productName": "Video Game Controller",
     "productCode": "GMG-0042",
-    "releaseDate": "October 15, 2015",
+    "releaseDate": new Date(2016,2,25),
     "description": {
       'descText': "Standard two-button video game controller",
       "mfdYear": 2017

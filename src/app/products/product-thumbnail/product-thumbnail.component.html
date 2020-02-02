@@ -31,6 +31,6 @@
   </div>
   <div class="card-footer text-muted">
     <button type="button" class="btn btn-primary" [routerLink]="['/productdetails',product.productId,{pName:product.productName,pCode:product.productCode}]" >Details</button>
-    <button type="button" class="btn btn-info" (click)="notify()" >Notify</button>
+    <button type="button" class="btn btn-info" [routerLink]="['/editProduct',product.productId]" >Edit</button>
   </div>
 </div>

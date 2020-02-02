@@ -6,7 +6,7 @@ import { ProductService } from '../Services/product.service';
   selector: 'products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css'],
-  // encapsulation:ViewEncapsulation.None,
+  // encapsulation:ViewEncapsulation.ShadowDom,
   // providers:[LoggerService,ProductService]
 })
 export class ProductsComponent implements OnInit {

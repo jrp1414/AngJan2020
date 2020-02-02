@@ -8,6 +8,8 @@ import { UnlessDirective } from '../Directives/unless.directive';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { EditProductComponent } from './edit-product/edit-product.component';
+import { MaxminDirective } from "./shared/maxmin.directive";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { FormsModule } from '@angular/forms';
     BasicHighlightDirective,
     BetterHighlightDirective,
     UnlessDirective,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    EditProductComponent,
+    MaxminDirective
   ],
   imports: [
     CommonModule,
@@ -26,6 +30,7 @@ import { FormsModule } from '@angular/forms';
     RouterModule.forChild([
       { path: "products", component: ProductsComponent },
       { path: "productdetails/:id", component: ProductDetailsComponent },
+      {path:"editProduct/:id",component:EditProductComponent}
     ])
   ]
 })
