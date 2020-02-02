@@ -17,6 +17,10 @@ export class ProductsComponent implements OnInit {
     this.ps.messageSender.subscribe((response)=>{
       this.message = response;
     });
+
+    this.ps.notify.subscribe((data)=>{
+      console.log(data);
+    });
   }
 
   imageWidth: string = "150px";

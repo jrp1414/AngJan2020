@@ -29,4 +29,8 @@ export class ProductThumbnailComponent implements OnInit {
     this.SendToParent.emit(name);
   }
 
+  notify(){
+    this.ps.notify.next("Notifying using Subject");
+  }
+
 }

@@ -1,12 +1,15 @@
 import { EventEmitter, Injectable } from '@angular/core';
 import { LoggerService } from './logger.service';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: "root"
 })
 export class ProductService {
   private productsList: Product[];
-  public messageSender: EventEmitter<string> = new EventEmitter<string>();
+  public messageSender: EventEmitter<string> = new EventEmitter<string>(); 
+  // Same we can do using EventEmitter as Observable, Subject and EventEmitter are all in the same family of RxJs Observables
+  public notify:Subject<string>= new Subject<string>();
   constructor(private ls: LoggerService) {
     this.productsList = products;
     this.ls.log("Hello");
