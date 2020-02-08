@@ -1,20 +1,21 @@
 <div class="panel">
-  <div class="panel-body">
-      <div class="row" >                
-          <div class="col-md-2"  >
-              <ul class="list-group">
-                  <li 
-                      *ngFor="let student of students" 
-                      class="list-group-item">
-                      <a 
-                          [routerLink]="[student.StudentId]">
-                              {{student.FirstName}}</a>
-                      </li>                        
-                  </ul>
-          </div>
-          <div class="col-md-10"  >
-              <router-outlet></router-outlet>
-          </div>
-      </div>
-  </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="list-group">
+                    <li class="list-group-item alert alert-info">
+                        <a [routerLink]="0">
+                            Add New Student</a>
+                    </li>
+                    <li *ngFor="let student of students" class="list-group-item">
+                        <a [routerLink]="[student.StudentId]">
+                            {{student.FirstName}}</a>
+                    </li>                    
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
 </div>

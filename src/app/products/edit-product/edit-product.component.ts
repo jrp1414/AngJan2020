@@ -11,8 +11,7 @@ import { ProductService, Product } from 'src/app/Services/services.index';
   styles: [
     `
     input.ng-touched.ng-invalid{
-      border:1px solid red;
-      
+      border:1px solid red;      
     }
     `
   ]

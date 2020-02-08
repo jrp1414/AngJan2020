@@ -1,7 +1,9 @@
 export class Student {
-    constructor(public StudentId: number,
-        public FirstName: string, public LastName: string,
-        public MobileNo: string, public EmailId: string, public Address: Address
+    constructor(public StudentId?: number,
+        public FirstName?: string, public LastName?: string,
+        public MobileNo?: string, public EmailId?: string, public Addresses?: Address[],
+        public Hobbies?:string[],
+        public NotificationType?:string
     ) {
     }
 }
