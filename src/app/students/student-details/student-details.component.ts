@@ -11,51 +11,39 @@ import { Observable, Observer, Subscription } from 'rxjs';
   templateUrl: './student-details.component.html',
   styles: []
 })
-export class StudentDetailsComponent implements OnInit,OnDestroy {
-  constructor(public route:ActivatedRoute,public ss:StudentService,public router:Router) { }
-  student:Student;
-  numsSubscription:Subscription;
-  
+export class StudentDetailsComponent implements OnInit, OnDestroy {
+  constructor(public route: ActivatedRoute, public ss: StudentService, public router: Router) { }
+  student: Student;
+  numsSubscription: Subscription;
+
 
   ngOnInit() {
-    this.route.params.subscribe((paramList)=>{
-      this.student = this.ss.GetStudentDetails(+paramList["id"]);
+    // this.route.params.subscribe((paramList) => {
+    //   let id = +paramList["id"];
+    //   if (id > 0) {
+    //     this.ss.GetStudentDetails(id).subscribe((resp) => {
+    //       this.student = <Student>resp;
+    //       this.ss.student = this.student;
+    //     });
+    //   } else {
+    //     this.router.navigate(["edit"], { relativeTo: this.route });
+    //   }
+
+    // });
+
+    this.route.data.subscribe(data=>{
+      this.student = <Student>data.student;
     });
-
-    // // Observable Examples
-    // let numsObs= Observable.interval(1000).map((num)=>num*2);
-
-    // this.numsSubscription= numsObs.subscribe((num)=>{
-    //   console.log(num);
-    // });
-
-    // let sampleObs = Observable.create((obs:Observer<string>)=>{
-    //  setTimeout(() => {
-    //    obs.next("First Data Released");
-    //  }, 2000); 
-    //  setTimeout(() => {
-    //   obs.next("Second Data Released");
-    // }, 4000);
-    // setTimeout(() => {
-    //   obs.next("Third Data Released");
-    // }, 6000);
-
-    // setTimeout(() => {
-    //   obs.error("Some Error Occured");
-    // }, 7000);
-
-    // setTimeout(() => {
-    //   obs.complete();
-    // }, 5000);
-    // });
-
-    // let sampleObsSubscription = sampleObs.subscribe((data)=>{console.log(data);},(error)=>{console.log(error)},()=>{sampleObsSubscription.unsubscribe();});
-
-    
   }
 
-  GoToEdit(){
-    this.router.navigate([this.student.StudentId+"/edit"],{relativeTo:this.route.parent});
+  GoToEdit() {
+    this.router.navigate([this.student.StudentId + "/edit"], { relativeTo: this.route.parent });
+  }
+
+  Delete(){
+    this.ss.DeleteStudent(this.student.StudentId).subscribe(resp=>{
+      this.router.navigateByUrl("students")
+    });
   }
 
   ngOnDestroy(): void {

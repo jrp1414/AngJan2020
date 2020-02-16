@@ -1,41 +1,34 @@
 import { Injectable } from '@angular/core';
 import { Student } from '../models/Student';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  GetStudentsList(): Student[] {
-    return this.students;
+  GetStudentsList() {
+    return this.http.get("https://localhost:44319/GetStudents");
   }
 
-  GetStudentDetails(id: number): Student {
-    let student =  this.students.find((student) => student.StudentId == id);
-    return student?student:new Student(0,"","","","",[],[],"email");
+  GetStudentDetails(id: number): Observable<any> {
+    return this.http.get("https://localhost:44319/GetStudent/"+id);
   }
 
-  private students: Student[] = [
-    {
-      StudentId: 1, FirstName: "Ram", LastName: "Patil", MobileNo: "985896589658", EmailId: "ram@gmail.com",
-      NotificationType:"email",
-      Addresses:[
-        { AddressId: 1, AddLine1: "Test", AddLine2: "Test", AddLine3: "Test", City: "Test", State: "Maharashtra" },
-        { AddressId: 1, AddLine1: "Test", AddLine2: "Test", AddLine3: "Test", City: "Test", State: "Maharashtra" }
-      ],Hobbies:[
-        "Test 1",
-        "Test 2"
-      ]
-    },
-    {
-      StudentId: 2, FirstName: "Ganesh", LastName: "Thorat", MobileNo: "985896589658", EmailId: "ganesh@gmail.com",
-      Addresses:[{ AddressId: 1, AddLine1: "Test", AddLine2: "Test", AddLine3: "Test", City: "Test", State: "Delhi" }],Hobbies:[]      
-    },
-    {
-      StudentId: 3, FirstName: "Sadashiv", LastName: "Darade", MobileNo: "985896589658", EmailId: "sadashiv@gmail.com",
-      Addresses:[{ AddressId: 1, AddLine1: "Test", AddLine2: "Test", AddLine3: "Test", City: "Test", State: "Gujrat" }],Hobbies:[]
-    }
-  ];
+  AddStudent(student:Student){
+    return this.http.post("https://localhost:44319/AddStudent",student);
+  }
+
+  UpdateStudent(student:Student){
+    return this.http.put("https://localhost:44319/UpdateStudent",student);
+  }
+
+  DeleteStudent(id:number){
+    return this.http.delete("https://localhost:44319/DeleteStudent/"+id);
+  }
+  
+  student:Student;
 }

@@ -1,4 +1,4 @@
-<div class="panel">
+<div class="panel" *ngIf="students.length>0;else loader" >
     <div class="panel-body">
         <div class="row">
             <div class="col-md-2">
@@ -9,7 +9,11 @@
                     </li>
                     <li *ngFor="let student of students" class="list-group-item">
                         <a [routerLink]="[student.StudentId]">
-                            {{student.FirstName}}</a>
+                            {{student.FirstName+" "+student.LastName}}</a>
+                    </li>
+                    <li class="list-group-item alert alert-info">
+                        <a [routerLink]="110">
+                            Wrong Student</a>
                     </li>                    
                 </ul>
             </div>
@@ -19,3 +23,6 @@
         </div>
     </div>
 </div>
+<ng-template #loader>
+    <div class="loader"></div>
+</ng-template>
